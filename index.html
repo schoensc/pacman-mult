@@ -55,6 +55,34 @@
 			}
 			
 			$(document).ready(function() { 
+				let playerData = {};
+
+$("#btn-join").click(function () {
+  const name = $("#join-name").val().trim();
+  const color = $("#join-color").val();
+
+  if (!name) {
+    alert("Please enter your name.");
+    return;
+  }
+
+  playerData.name = name;
+  playerData.color = color;
+
+  // Store globally for other files to use
+  window.PLAYER_NAME = name;
+  window.PLAYER_COLOR = color;
+
+  // Show player name on scoreboard
+  $("#score h2").text(name.toUpperCase());
+
+  // Hide overlay and continue with game
+  $("#join-overlay").fadeOut();
+
+  // Now start the home screen
+ // initHome();
+});
+
 				//$.mobile.loading().hide();
 				loadAllSound();
 				
